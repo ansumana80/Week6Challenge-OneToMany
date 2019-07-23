@@ -41,7 +41,7 @@ public class HomeController {
             model.addAttribute("cars", carRepository.findAll());
             return "carcategoryform";
         }
-        carRepository.save(car);
+        carcategoryRepository.save(carcategory);
        return "redirect:/";
     }
 
