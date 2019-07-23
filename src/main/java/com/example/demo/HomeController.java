@@ -34,7 +34,7 @@ public class HomeController {
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid CarDealership cardealership, BindingResult result, Model model)
+    public String processForm(@Valid CarCategory carcategory, BindingResult result, Model model)
     {
         if (result.hasErrors())
         {
