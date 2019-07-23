@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/add"> Show All Cars</a></br/>
+Brand :<span th:text="*{car.brand}"></span><br/>
+Model :<span th:text="*{car.model}"></span><br/>
+Year  :<span th:text="*{car.year}"></span><br/>
+Price :<span th:text="*{car.price}"></span><br/>
+<a th:href="@{/delete/{id}(id=${car.id})}">Delte this car</a>
+
+</body>
+</html>
