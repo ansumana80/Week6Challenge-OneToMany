@@ -5,28 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/add"> Add a Cardealership </a><br/>
+
 <a href="/add"> Add a Car Category </a><br/>
-<a href="/add"> Add a Car </a><br/>
+<a href="#/add"> Add a Car </a><br/>
 
     <table>
         <tr>
-            <th> Carcategory</th>
-            <th> Category Name;</th>
+            <th> Carcategory Name</th>
+
 
 
         </tr>
-        <tr th:each="car: ${cars}">
+        <!--<tr th:each="car: ${cars}">-->
 
-            <td th:text="${car.brand}"></td>
-            <td th:text="${car.model}"></td>
-            <td th:text="${car.year}"></td>
-            <td th:text="${car.price}"></td>
-            <td>
-                <a th:href="@{/update/{id}(id=${car.id})}">Update</a> -
-                <a th:href="@{/detail/{id}(id=${car.id})}">Details</a> -
-                <a th:href="@{/delete/{id}(id=${car.id})}">Delete</a> -
-            </td>
+            <!--<td th:text="${car.brand}"></td>-->
+            <!--<td th:text="${car.model}"></td>-->
+            <!--<td th:text="${car.year}"></td>-->
+            <!--<td th:text="${car.price}"></td>-->
+            <!--<td>-->
+                <!--<a th:href="@{/update/{id}(id=${car.id})}">Update</a> - -->
+                <!--<a th:href="@{/detail/{id}(id=${car.id})}">Details</a> - -->
+                <!--<a th:href="@{/delete/{id}(id=${car.id})}">Delete</a> - -->
+            <!--</td>-->
+        <!--</tr>-->
+        <tr th:each = "category : ${carcategories}">
+            <td th:text="${category.nameCategory}"></td>
         </tr>
     </table>
 

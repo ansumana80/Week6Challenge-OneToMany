@@ -26,12 +26,11 @@ public class Car
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
-    private CarCategory carCategory;
+    private CarCategory carcategory;
 
 
     // constr
     public Car() {
-        carCategory = new CarCategory();
     }
 
     public Car(@NotNull String brand, @NotNull String model, String year, @NotNull int price) {
@@ -84,10 +83,10 @@ public class Car
     }
 
     public CarCategory getCarCategory() {
-        return carCategory;
+        return carcategory;
     }
 
-    public void setCarCategory(CarCategory carCategory) {
-        this.carCategory = carCategory;
+    public void setCarCategory(CarCategory carcategory) {
+        this.carcategory = carcategory;
     }
 }

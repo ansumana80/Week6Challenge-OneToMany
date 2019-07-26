@@ -21,16 +21,31 @@ public class HomeController {
 
     @RequestMapping("/")
     public String carList(Model model) {
-        model.addAttribute("carcatergories", carcategoryRepository.findAll());
+        model.addAttribute("carcategories", carcategoryRepository.findAll());
         model.addAttribute("cars", carRepository.findAll());
         return "list";
     }
 
+    @GetMapping("/addcar")
+    public String processCar(Model model) {
+
+        model.addAttribute("car", new Car());
+        return "carform";
+    }
+    @PostMapping("/processcar")
+    public String processForm(@Valid Car car, BindingResult result, Model model){
+        if (result.hasErrors()){
+            return "carform";
+        }
+        carRepository.save(car);
+        return "redirect:/";
+    }
+
     @GetMapping("/add")
     public String carForm(Model model) {
-        model.addAttribute("carcatergories", new CarCategory());
+        model.addAttribute("carcategory", new CarCategory());
         model.addAttribute("cars", carRepository.findAll());
-        return "carform";
+        return "categoryform";
     }
 
     @PostMapping("/process")
@@ -43,27 +58,6 @@ public class HomeController {
         }
         carcategoryRepository.save(carcategory);
        return "redirect:/";
-    }
-
-
-
-    @RequestMapping("/addcar")
-    public String processCar(Model model) {
-
-        model.addAttribute("car", new Car());
-        return "carform";
-
-
-
-    }
-
-    @PostMapping("/processcar")
-    public String processForm(@Valid Car car, BindingResult result, Model model){
-        if (result.hasErrors()){
-            return "carform";
-        }
-        carRepository.save(car);
-        return "redirect:/";
     }
 
 
@@ -85,10 +79,5 @@ public class HomeController {
         carRepository.deleteById(id);
         return "redirect:/";
     }
-
-
-
-
-
 
 }

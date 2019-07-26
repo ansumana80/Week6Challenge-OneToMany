@@ -10,13 +10,13 @@ public class CarCategory
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String NameCategory;
+    private String nameCategory;
 
-    @OneToMany(mappedBy = "carcatergory", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "carcategory", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Set<Car> cars;
 
-    public CarCategory()
-    {
+
+    public CarCategory() {
     }
 
 
@@ -29,11 +29,11 @@ public class CarCategory
     }
 
     public String getNameCategory() {
-        return NameCategory;
+        return nameCategory;
     }
 
     public void setNameCategory(String nameCategory) {
-        NameCategory = nameCategory;
+        this.nameCategory = nameCategory;
     }
 
     public Set<Car> getCars() {
